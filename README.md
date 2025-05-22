@@ -48,6 +48,41 @@ To fine-tune the model using NOAS optimization, run the following command:
 python DeepASC/train_noas.py
 ```
 
+### Room Acoustics Simulation
+
+This repository provides a unified interface for simulating room acoustics using several Room Impulse Response (RIR) simulators, all accessible via a common interface in `tools/simulator.py`. This design allows you to easily switch between different simulation packages with minimal code changes.
+
+**Available Simulators:**
+- **BoseSimulator**: Uses measured RIRs from the \ dataset.
+- **RIRGenSimulator**: Generates synthetic RIRs using the `rir_generator` package.
+- **PyRoomSimulator**: Generates synthetic RIRs using the `Pyroomacoustics` package.
+- **GPUSimulator**: Generates synthetic RIRs using the `gpuRIR` package.
+
+**Unified Interface:**
+All simulators implement a `simulate` method:
+```python
+simulate(signal_batch, t60_or_pid, signal_type, padding="same")
+```
+- `signal_batch`: Tensor of shape `[batch, samples]` (mono audio).
+- `t60_or_pid`: Reverberation time (T60) or person ID, depending on simulator.
+- `signal_type`: Type of signal path (e.g., `NOISE_ERROR`, `ANSTISIGNAL_ERROR`).
+- `padding`: (Optional) Convolution padding mode (`"same"` by default).
+
+**Shared Configuration & Assumptions:**
+- **RIR Length**: All simulators use an RIR length of 512 samples by default.
+- **Room Geometry**: `[3, 4, 2]` meters.
+- **Microphone & Source Positions**:
+    - Reference mic: `[1.5, 1, 1]`
+    - Error mic: `[1.5, 3, 1]`
+    - Loudspeaker source: `[1.5, 2.5, 1]`
+
+**Convolution Variants (`v` argument):**
+`RIRGenSimulator` simulator supports different convolution strategies via the `v` argument:
+- `v=1`: Standard 1D convolution.
+- `v=2`: Forward-backward convolution (applies the filter twice, with signal reversal).
+- Default (shared for all simulators): Uses FFT-based convolution for efficiency.
+
+
 ## Usage
 
 1. Install the required packages:

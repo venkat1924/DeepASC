@@ -2,7 +2,7 @@ import os
 import numpy as np
 import torch
 import torchaudio
-# import gpuRIR
+import gpuRIR
 import pyroomacoustics as pra
 import rir_generator
 import scipy.io
@@ -120,7 +120,7 @@ class BoseSimulator:
 
 
 class RIRGenSimulator:
-    def __init__(self, sr, reverbation_times, device, rir_samples=512, hp_filter=False, c=343,v=1):
+    def __init__(self, sr, reverbation_times, device, rir_samples=512, hp_filter=False, c=343,v=3):
         self.sr = sr
         self.device = device
         self.room_dim = [3, 4, 2]
