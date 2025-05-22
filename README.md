@@ -90,6 +90,9 @@ simulate(signal_batch, t60_or_pid, signal_type, padding="same")
     pip install -r requirements.txt
     ```
 
-3. Prepare your dataset as described in the Dataset Preparation section.
+2. Prepare your dataset as described in the Dataset Preparation section.
 
-4. Train the model using one of the training methods described above.
+3. Train the model using one of the training methods described above.
+
+
+> **Note:** If you encounter any issues or something doesn't work as expected, please let us know by opening an issue. We will do our best to address and fix it as soon as possible!
