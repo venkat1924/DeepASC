@@ -9,7 +9,7 @@ You can listen to our demo audio samples [here](https://mishalydev.github.io/Dee
 - `DeepASC/`: Contains the main method implementations.
 - `DeepASC/hparams/exp/`: Contains the YAML configuration files for experiments.
 - `data_utils/`: Contains utilities for data processing and dataset creation.
-- `baselines`: Contains our implementations of deep-learning baselines ANC.
+- `baselines`: Contains our implementations of ANC baseline methods.
 
 ## Getting Started
 
