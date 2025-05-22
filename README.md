@@ -48,7 +48,7 @@ To fine-tune the model using NOAS optimization, run the following command:
 python DeepASC/train_noas.py
 ```
 
-### Room Acoustics Simulation
+## Room Acoustics Simulation
 
 This repository provides a unified interface for simulating room acoustics using several Room Impulse Response (RIR) simulators, all accessible via a common interface in `tools/simulator.py`. This design allows you to easily switch between different simulation packages with minimal code changes.
 
