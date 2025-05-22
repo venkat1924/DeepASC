@@ -53,10 +53,10 @@ python DeepASC/train_noas.py
 This repository provides a unified interface for simulating room acoustics using several Room Impulse Response (RIR) simulators, all accessible via a common interface in `tools/simulator.py`. This design allows you to easily switch between different simulation packages with minimal code changes.
 
 **Available Simulators:**
-- **BoseSimulator**: Uses measured RIRs from the \ dataset.
 - **RIRGenSimulator**: Generates synthetic RIRs using the `rir_generator` package.
 - **PyRoomSimulator**: Generates synthetic RIRs using the `Pyroomacoustics` package.
 - **GPUSimulator**: Generates synthetic RIRs using the `gpuRIR` package.
+- **BoseSimulator**: Uses real-world measured RIRs from Bose in-ear headphones [[Liebich et al., 2019]](#references).
 
 **Unified Interface:**
 All simulators implement a `simulate` method:
@@ -96,3 +96,7 @@ simulate(signal_batch, t60_or_pid, signal_type, padding="same")
 
 
 > **Note:** If you encounter any issues or something doesn't work as expected, please let us know by opening an issue. We will do our best to address and fix it as soon as possible!
+
+## References
+
+- Liebich, S., Fabry, J., Jax, P., & Vary, P. (2019). Acoustic path database for ANC in-ear headphone development. [Link](https://api.semanticscholar.org/CorpusID:204793245)
