@@ -18,9 +18,15 @@ You can listen to our demo audio samples [here](https://mishalydev.github.io/Dee
 - Note: Depending on your `mamba_ssm` version, the `layernorm` module may be `mamba_ssm.ops.triton.layer_norm` or `mamba_ssm.ops.triton.layernorm` (without underscore). Update import statements as needed.
 
 ### Dataset Preparation
-We assume that your training set is located under `data_utils/data/Audioset`. Before using the dataset for the first time, you need to create a txt file with all the WAV file names in `data_utils/meta/Audioset.txt`. You can use the `export_filenames_to_txt` function in `data_utils/processor.py` for this purpose.
+We assume that your dataset consists of WAV files from Google Audioset is already under `data_utils/data/Audioset`. For reproducibility, we also provide the list of Google Audioset noise categories used in our paper in `data_utils/data/Audioset/category_names.txt`.
+
+Before using the dataset for the first time, you need to create a txt file listing all the WAV file names and save it as `data_utils/meta/Audioset.txt`. You can use the `export_filenames_to_txt` function in `data_utils/processor.py` for this purpose.
+
+As described in the paper, we use 3-second noise samples at 16 kHz. 
+Each noise signal is passed through the room simulator during train/test time.
 
 Note: Our code assumes that the audio files are in mono channel format. Please ensure that your audio files are not in stereo format.
+
 
 #### Building the NOAS Signals Dataset
 
