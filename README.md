@@ -90,6 +90,7 @@ simulate(signal_batch, t60_or_pid, signal_type, padding="same")
 
 
 ## Usage
+> **Note:** It is recommended to use **Python 3.10** for best compatibility with the code and dependencies.
 
 1. Install the required packages:
     ```bash
