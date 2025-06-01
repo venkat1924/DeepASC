@@ -6,6 +6,8 @@ import torchaudio
 
 SCRIPT_FOLDER = os.path.dirname(os.path.realpath(__file__))
 PARENT_FOLDER = f"{SCRIPT_FOLDER}/.."
+META_DIR = os.path.abspath(os.path.join(PARENT_FOLDER, "data_utils", "data", "Audioset", "Meta"))
+os.makedirs(META_DIR, exist_ok=True)
 sys.path.insert(0, PARENT_FOLDER)
 
 from tools.simulator import RIRGenSimulator, ANSTISIGNAL_ERROR, NOISE_ERROR
