@@ -27,7 +27,7 @@ class WavSample:
         self.name = name
 
 def txtfile_name(ds):
-    return f'{SCRIPT_FOLDER}/meta/{ds.replace("/", "_")}.txt'
+    return f'{SCRIPT_FOLDER}/meta/NoiseX-92.txt'
 
 
 def export_filenames_to_txt(ds,recursive=True):
@@ -38,6 +38,8 @@ def export_filenames_to_txt(ds,recursive=True):
     with open(txtfile_name(ds), 'w') as f:
         for wav_file in wav_files:
             f.write(wav_file + '\n')
+            print("did1")
+        print("did2")
 
 
 def get_tr_list(data_sets=data_sets):
@@ -52,9 +54,7 @@ def get_tr_list(data_sets=data_sets):
 
 
 if __name__ == '__main__':
-    # files = get_tr_list(data_sets={"timit_TIMIT_TRAIN"})
-    # export_filenames_to_txt(ds="Audioset")
-    export_filenames_to_txt(ds="NoiseX-92")
-    
+    files = get_tr_list(data_sets={"Audioset"})
+    export_filenames_to_txt(ds="Audioset")    
 
 
