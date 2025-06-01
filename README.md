@@ -1,6 +1,6 @@
 # Deep Active Speech Cancellation with Mamba-Masking Network
 
-This repository contains the implementation of our method for Active Speech Cancellation (ASC) using a masking mechanism that directly interacts with the encoded reference signal. This README provides instructions on how to train and fine-tune the model, as well as how to build the necessary datasets.
+This repository contains the official implementation of [DeepASC](https://arxiv.org/abs/2502.01185), a method for Active Speech Cancellation (ASC) using a masking mechanism that directly interacts with the encoded reference signal. This README provides instructions on how to train and fine-tune the model, as well as how to build the necessary datasets.
 
 You can listen to our demo audio samples [here](https://mishalydev.github.io/DeepASC-Demo/).
 
